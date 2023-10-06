@@ -1,6 +1,7 @@
 import Instagram from "../assets/icons/instagram.svg";
 import Facebook from "../assets/icons/facebook.svg";
 import Twitter from "../assets/icons/twitter.svg";
+
 function Header() {
   return (
     <main className="bg-customColor">
@@ -10,7 +11,7 @@ function Header() {
             +994(12) 123 45 67
           </span>
           <span className="text-textColor font-medium text-[10px] sm:text-xs not-italic ">
-             Fətəli Xan Xoyski 111A, Bakı Azərbaycan
+            Fətəli Xan Xoyski 111A, Bakı Azərbaycan
           </span>
         </nav>
 
