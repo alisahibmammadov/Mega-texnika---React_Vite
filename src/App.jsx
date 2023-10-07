@@ -12,6 +12,7 @@ import linkDataRu from "./data/ru/linkData";
 function App() {
   const [linkData, setLinkData] = useState([]);
   const [siteLang, setSiteLang] = useState();
+  
 
   useEffect(() => {
     setSiteLang(JSON.parse(localStorage.getItem("lang")));
@@ -32,7 +33,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Header siteLang={siteLang} />
-        <Navbar handleLang={handleLang} linkData={linkData} />
+        <Navbar handleLang={handleLang} linkData={linkData}  />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>

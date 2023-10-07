@@ -4,15 +4,21 @@ import PropTypes from "prop-types";
 import WebLogo from "../assets/images/WebLogo/logo.svg";
 import Down from "../assets/icons/arrows/down.svg";
 import LangBtn from "../components/LangBtn";
+import Bar from '../assets/icons/bar.svg'
+import MobileNavbar from "./MobileNavbar";
 function Navbar({ handleLang, linkData }) {
+  const [mobile,setMobile] = useState(false)
   const [modal, setModal] = useState(false);
   
   const handleClick = () => {
     setModal(!modal);
   };
 
+  const handleClickMobile = () => {
+    setMobile(!mobile)
+  } 
   return (
-    <main className="shadow-lg shadow-[#9f9f9f40]">
+    <main className="shadow-lg shadow-[#9f9f9f40] relative px-3">
       <nav className="container mx-auto flex justify-between items-center py-10 gap-2 px-5 sm:px-0">
         <Link to="/">
           <img src={WebLogo} alt="Mega texnika" className="sm:w-20 md:w-auto " />
@@ -50,8 +56,16 @@ function Navbar({ handleLang, linkData }) {
             </Link>
           ))}
         </nav>
-        <LangBtn handleLang={handleLang} />
+        <LangBtn handleLang={handleLang}  />
+        <nav className="sm:hidden flex cursor-pointer"  onClick={()=>handleClickMobile()}>
+            {
+              !mobile ? <img src={Bar} alt="Menu" /> : <i className="fa-solid fa-xmark text-[40px] " style={{color: "#ffc01f"}} ></i>
+            }
+        </nav>
       </nav>
+      {
+        mobile ? <MobileNavbar handleLang={handleLang} linkData={linkData}/> : null
+      }
     </main>
   );
 }
@@ -60,4 +74,6 @@ export default Navbar;
 Navbar.propTypes = {
   handleLang: PropTypes.string.isRequired,
   linkData: PropTypes.string.isRequired,
+  modal: PropTypes.string.isRequired,
+  setModal: PropTypes.string.isRequired,
 };

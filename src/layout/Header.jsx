@@ -5,7 +5,7 @@ import Twitter from "../assets/icons/twitter.svg";
 
 function Header({ siteLang }) {
   return (
-    <main className="bg-customColor">
+    <main className="bg-customColor px-3">
       <header className="container flex justify-between mx-auto py-3 px-5 sm:px-0">
         <nav className="flex flex-col sm:flex-row items-start justify-start gap-1">
           <span className="text-textColor font-medium text-[10px] sm:text-xs not-italic">
