@@ -19,6 +19,9 @@ function Navbar({ handleLang, linkData }) {
       setModal(false);
     }
   };
+  const handleClickMobile = () => {
+    setMobile(!mobile);
+  };
   useEffect(() => {
     window.addEventListener("resize", () => {
       if (window.innerWidth > 640) {
@@ -31,9 +34,7 @@ function Navbar({ handleLang, linkData }) {
       window.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [mobile]);
-  const handleClickMobile = () => {
-    setMobile(!mobile);
-  };
+
   return (
     <main className="shadow-lg shadow-[#9f9f9f40] relative px-3">
       <nav className="container mx-auto flex justify-between items-center py-10 gap-2 px-5 sm:px-0">
