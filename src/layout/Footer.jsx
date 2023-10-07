@@ -8,7 +8,7 @@ import Twitter from "../assets/icons/twitter.svg";
 
 function Footer({ siteLang, linkData }) {
   return (
-    <footer className={`${style.footer}  w-full py-8 flex flex-col gap-20 px-3`}>
+    <footer className={`${style?.footer}  w-full py-8 flex flex-col gap-20 px-3`}>
       <main className="container mx-auto flex flex-wrap items-start justify-between gap-10 px-5 sm:px-0">
         <div>
           <Link to="/">
