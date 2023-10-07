@@ -6,6 +6,7 @@ import linkDataAz from "../data/az/linkData.js";
 import linkDataEn from "../data/en/linkData.js";
 import linkDataRu from "../data/ru/linkData.js";
 import LangBtn from "../components/button/langBtn";
+import PropTypes from "prop-types";
 
 const langs = [
   { langName: "Az", langType: "az" },
@@ -165,3 +166,7 @@ function Navbar({ lang, setLang }) {
 }
 
 export default Navbar;
+Navbar.propTypes = {
+  lang: PropTypes.string.isRequired, // veya uygun tip
+  setLang: PropTypes.string.isRequired, // veya uygun tip
+};

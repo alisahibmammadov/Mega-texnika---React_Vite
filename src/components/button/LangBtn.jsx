@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function LangBtn({ langs }) {
   return (
     <button onClick={() => console.log(langs.langType)}>
@@ -7,3 +9,7 @@ function LangBtn({ langs }) {
 }
 
 export default LangBtn;
+
+LangBtn.propTypes = {
+  langs: PropTypes.string.isRequired, // veya uygun tip
+};
