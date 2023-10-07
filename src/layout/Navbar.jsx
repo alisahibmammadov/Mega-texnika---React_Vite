@@ -8,15 +8,14 @@ import linkDataRu from "../data/ru/linkData.js";
 import LangBtn from "../components/button/langBtn";
 import PropTypes from "prop-types";
 
-const langs = [
-  { langName: "Az", langType: "az" },
-  { langName: "En", langType: "en" },
-  { langName: "Ru", langType: "ru" },
-];
+// const langs = [
+//   { id: 1, langName: "Az", langType: "az", num:"1" },
+//   { id: 2, langName: "En", langType: "en", num:"2" },
+//   { id: 3, langName: "Ru", langType: "ru", num:"3" },
+// ];
 
-function Navbar({ lang, setLang }) {
+function Navbar({ siteLang, handleLang }) {
   const [modal, setModal] = useState(false);
-  const [btn, setBtn] = useState("1");
   const handleClick = () => {
     setModal(!modal);
   };
@@ -27,7 +26,7 @@ function Navbar({ lang, setLang }) {
           <img src={WebLogo} alt="Mega texnika" />
         </Link>
 
-        {lang === "az" ? (
+        {siteLang === "az" ? (
           <nav className="flex gap-10 items-center">
             {linkDataAz.map((item, index) => (
               <Link
@@ -62,7 +61,7 @@ function Navbar({ lang, setLang }) {
           </nav>
         ) : null}
 
-        {lang === "en" ? (
+        {siteLang === "en" ? (
           <nav className="flex gap-10 items-center">
             {linkDataEn.map((item, index) => (
               <Link
@@ -96,7 +95,7 @@ function Navbar({ lang, setLang }) {
             ))}
           </nav>
         ) : null}
-        {lang === "ru" ? (
+        {siteLang === "ru" ? (
           <nav className="flex gap-10 items-center">
             {linkDataRu.map((item, index) => (
               <Link
@@ -129,37 +128,7 @@ function Navbar({ lang, setLang }) {
           </nav>
         ) : null}
 
-        <nav>
-          <button
-            className={btn === "1" ? "text-red-500" : null}
-            onClick={() => {
-              setLang("az"), setBtn("1");
-            }}
-          >
-            Az
-          </button>
-          <button
-            className={btn === "2" ? "text-red-500" : null}
-            onClick={() => {
-              setLang("en"), setBtn("2");
-            }}
-          >
-            En
-          </button>
-          <button
-            className={btn === "3" ? "text-red-500" : null}
-            onClick={() => {
-              setLang("ru"), setBtn("3");
-            }}
-          >
-            Ru
-          </button>
-        </nav>
-        <nav>
-          {langs.map((langs, index) => (
-            <LangBtn key={index} langs={langs} />
-          ))}
-        </nav>
+        <LangBtn handleLang={handleLang} />
       </nav>
     </main>
   );
@@ -167,6 +136,6 @@ function Navbar({ lang, setLang }) {
 
 export default Navbar;
 Navbar.propTypes = {
-  lang: PropTypes.string.isRequired, // veya uygun tip
-  setLang: PropTypes.string.isRequired, // veya uygun tip
+  siteLang: PropTypes.string.isRequired, 
+  handleLang: PropTypes.string.isRequired, 
 };

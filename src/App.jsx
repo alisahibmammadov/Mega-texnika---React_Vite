@@ -4,15 +4,24 @@ import Home from "./pages/Home";
 import Header from "./layout/Header.jsx";
 import Navbar from "./layout/Navbar.jsx";
 import Footer from "./layout/Footer.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [siteLang, setSiteLang] = useState("az");
+  const [siteLang, setSiteLang] = useState();
+
+  useEffect(() => {
+    setSiteLang(JSON.parse(localStorage.getItem("lang")));
+  }, [siteLang]);
+
+  const handleLang = (lang) => {
+    setSiteLang(lang);
+    localStorage.setItem("lang", JSON.stringify(lang));
+  };
   return (
     <div>
       <BrowserRouter>
-        <Header lang={siteLang}/>
-        <Navbar setLang={setSiteLang} lang={siteLang} />
+        <Header siteLang={siteLang} />
+        <Navbar handleLang={handleLang} siteLang={siteLang} />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>

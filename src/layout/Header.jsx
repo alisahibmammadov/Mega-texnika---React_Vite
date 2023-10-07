@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Instagram from "../assets/icons/instagram.svg";
 import Facebook from "../assets/icons/facebook.svg";
 import Twitter from "../assets/icons/twitter.svg";
@@ -36,3 +37,6 @@ function Header({ siteLang }) {
 }
 
 export default Header;
+Header.propTypes = {
+  siteLang: PropTypes.string.isRequired,
+};
