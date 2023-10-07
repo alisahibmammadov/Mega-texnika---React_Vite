@@ -10,8 +10,8 @@ function MobileNavbar({ linkData }) {
   };
 
   return (
-    <main className="bg-white absolute w-full  top-[110px] h-screen pb-3 ">
-      <nav className="flex flex-col gap-5 items-start h-full ">
+    <main className="bg-white absolute w-full  top-[110px] left-[0px] h-screen pb-3 ">
+      <nav className="flex flex-col gap-5 items-start h-full pl-8">
         {linkData.map((item, index) => (
           <Link
             to={item.link}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import WebLogo from "../assets/images/WebLogo/logo.svg";
@@ -13,7 +13,14 @@ function Navbar({ handleLang, linkData }) {
   const handleClick = () => {
     setModal(!modal);
   };
-
+  useEffect(()=>{
+    
+    window.addEventListener('resize',()=>{
+      if(window.innerWidth > 640){
+        setMobile(false)
+      }
+    })
+  },[mobile])
   const handleClickMobile = () => {
     setMobile(!mobile)
   } 
