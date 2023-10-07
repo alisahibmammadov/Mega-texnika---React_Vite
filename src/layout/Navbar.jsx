@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import WebLogo from "../assets/images/WebLogo/logo.svg";
 import Down from "../assets/icons/arrows/down.svg";
-import LangBtn from "../components/button/langBtn";
+import LangBtn from "../components/button/langBtn.jsx";
 function Navbar({ handleLang, linkData }) {
   const [modal, setModal] = useState(false);
   
