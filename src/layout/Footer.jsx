@@ -8,8 +8,8 @@ import Twitter from "../assets/icons/twitter.svg";
 
 function Footer({ siteLang, linkData }) {
   return (
-    <footer className={`${style.footer}  w-full py-8 flex flex-col gap-20`}>
-      <main className="container mx-auto flex flex-wrap items-start justify-between">
+    <footer className={`${style.footer}  w-full py-8 flex flex-col gap-20 px-3`}>
+      <main className="container mx-auto flex flex-wrap items-start justify-between gap-10 px-5 sm:px-0">
         <div>
           <Link to="/">
             <img src={WebLogo} alt="Mega Texnika" />
@@ -47,7 +47,7 @@ function Footer({ siteLang, linkData }) {
           </span>
         </div>
         <div className="flex flex-col gap-6">
-          <span>
+          <span className="text-textColor text-sm font-normal not-italic"> 
             {siteLang === "az"
               ? "Qrafik (iş saatlarımız)"
               : siteLang === "en"
@@ -65,7 +65,7 @@ function Footer({ siteLang, linkData }) {
         </div>
       </main>
 
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex justify-between items-center px-5 sm:px-0">
         <span className="text-textColor text-xs not-italic select-none">
           © 2022{" "}
           {siteLang === "az"
