@@ -13,12 +13,12 @@ function Navbar({ handleLang, linkData }) {
 
   return (
     <main className="shadow-lg shadow-[#9f9f9f40]">
-      <nav className="container mx-auto flex justify-between py-10 gap-2 px-5 sm:px-0">
+      <nav className="container mx-auto flex justify-between items-center py-10 gap-2 px-5 sm:px-0">
         <Link to="/">
-          <img src={WebLogo} alt="Mega texnika" className="min-w-[123px]" />
+          <img src={WebLogo} alt="Mega texnika" className="sm:w-20 md:w-auto " />
         </Link>
 
-        <nav className="hidden sm:flex gap-2 items-center lg:gap-20 md:gap-8">
+        <nav className="hidden sm:flex gap-1 items-center lg:gap-16 md:gap-4">
           {linkData.map((item, index) => (
             <Link
               to={item.link}
