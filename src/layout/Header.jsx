@@ -27,9 +27,9 @@ function Header({ siteLang }) {
         </nav>
 
         <nav className="flex items-center gap-4 sm:gap-6">
-          <img src={Instagram} alt="Instagram" />
-          <img src={Facebook} alt="Facebook" />
-          <img src={Twitter} alt="Twitter" />
+          <img src={Instagram} alt="Instagram" className="cursor-pointer" />
+          <img src={Facebook} alt="Facebook" className="cursor-pointer" />
+          <img src={Twitter} alt="Twitter" className="cursor-pointer" />
         </nav>
       </header>
     </main>

@@ -7,7 +7,7 @@ export default {
       colors: {
         customColor: "#FFC01F",
         textColor: "#353535",
-        textHover: "#000",
+        textHover: "#FFC01F",
       },
     },
   },

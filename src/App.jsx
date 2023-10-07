@@ -37,7 +37,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
-        <Footer />
+        <Footer siteLang={siteLang} linkData={linkData}/>
       </BrowserRouter>
     </div>
   );
