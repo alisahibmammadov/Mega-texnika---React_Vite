@@ -1,40 +1,54 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import WebLogo from "../assets/images/WebLogo/logo.svg";
 import Down from "../assets/icons/arrows/down.svg";
 import LangBtn from "../components/LangBtn";
-import Bar from '../assets/icons/bar.svg'
+import Bar from "../assets/icons/bar.svg";
 import MobileNavbar from "./MobileNavbar";
 function Navbar({ handleLang, linkData }) {
-  const [mobile,setMobile] = useState(false)
+  const [mobile, setMobile] = useState(false);
   const [modal, setModal] = useState(false);
-  
+  const modalRef = useRef(null);
+
   const handleClick = () => {
     setModal(!modal);
   };
-  useEffect(()=>{
-    
-    window.addEventListener('resize',()=>{
-      if(window.innerWidth > 640){
-        setMobile(false)
+  const handleOutsideClick = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
+      setModal(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 640) {
+        setMobile(false);
       }
-    })
-  },[mobile])
+    });
+    window.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      window.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [mobile]);
   const handleClickMobile = () => {
-    setMobile(!mobile)
-  } 
+    setMobile(!mobile);
+  };
   return (
     <main className="shadow-lg shadow-[#9f9f9f40] relative px-3">
       <nav className="container mx-auto flex justify-between items-center py-10 gap-2 px-5 sm:px-0">
         <Link to="/">
-          <img src={WebLogo} alt="Mega texnika" className="sm:w-20 md:w-auto " />
+          <img
+            src={WebLogo}
+            alt="Mega texnika"
+            className="sm:w-20 md:w-auto "
+          />
         </Link>
 
         <nav className="hidden sm:flex gap-1 items-center lg:gap-16 md:gap-4">
           {linkData.map((item, index) => (
             <Link
-              to={item.link}
+              to={item.link !== "techniques" ? item.link : null}
               onClick={item.link === "techniques" ? handleClick : null}
               className={
                 item.link === "techniques"
@@ -48,7 +62,10 @@ function Navbar({ handleLang, linkData }) {
                 <img src={Down} alt="Down" />
               ) : null}{" "}
               {item.link === "techniques" && item.subCategories && modal ? (
-                <nav className="flex flex-col gap-2 absolute top-10 left-0 w-44 bg-white shadow-sm rounded-sm border-2 px-1">
+                <nav
+                  ref={modalRef}
+                  className="flex flex-col gap-2 absolute top-10 left-0 w-44 bg-white shadow-sm rounded-sm border-2 px-1"
+                >
                   {item.subCategories.map((item, index) => (
                     <Link
                       to={item.link}
@@ -63,16 +80,24 @@ function Navbar({ handleLang, linkData }) {
             </Link>
           ))}
         </nav>
-        <LangBtn handleLang={handleLang}  />
-        <nav className="sm:hidden flex cursor-pointer"  onClick={()=>handleClickMobile()}>
-            {
-              !mobile ? <img src={Bar} alt="Menu" /> : <i className="fa-solid fa-xmark text-[40px] " style={{color: "#ffc01f"}} ></i>
-            }
+        <LangBtn handleLang={handleLang} />
+        <nav
+          className="sm:hidden flex cursor-pointer"
+          onClick={() => handleClickMobile()}
+        >
+          {!mobile ? (
+            <img src={Bar} alt="Menu" />
+          ) : (
+            <i
+              className="fa-solid fa-xmark text-[40px] "
+              style={{ color: "#ffc01f" }}
+            ></i>
+          )}
         </nav>
       </nav>
-      {
-        mobile ? <MobileNavbar handleLang={handleLang} linkData={linkData}/> : null
-      }
+      {mobile ? (
+        <MobileNavbar handleLang={handleLang} linkData={linkData} />
+      ) : null}
     </main>
   );
 }
