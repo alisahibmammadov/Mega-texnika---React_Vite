@@ -10,6 +10,9 @@ export default {
         textHover: "#FFC01F",
         textHeadColor:"#596C72",
       },
+      boxShadow:{
+        boxShadow:"0px 0px 7px 0px rgba(149, 149, 149, 0.25)"
+      }
     },
   },
   plugins: [],

@@ -1,6 +1,14 @@
+@import "react-alice-carousel/lib/alice-carousel.css";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+}
+.alice-carousel__prev-btn span {
+  display: none;
+}
+
+.alice-carousel__next-btn span {
+  display: none;
 }

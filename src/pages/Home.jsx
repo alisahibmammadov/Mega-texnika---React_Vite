@@ -5,7 +5,7 @@ function Home({texnikalarData,siteLang}) {
   return (
     <div>
       <Categories texnikalarData={texnikalarData} siteLang={siteLang}/>
-      <Techniques siteLang={siteLang}/>
+      <Techniques texnikalarData={texnikalarData} siteLang={siteLang}/>
     </div>
   )
 }

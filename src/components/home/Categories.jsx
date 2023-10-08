@@ -14,7 +14,7 @@ function Categories({ texnikalarData,siteLang }) {
       <section className="container mx-auto flex flex-wrap justify-center sm:justify-between gap-5 px-5 sm:px-0">
         {texnikalarData.slice(0, 8).map((item, index) => (
           <Link key={index} to={`/texnikalar?category=${item.head}`}>
-            <div className="w-72 h-96 flex flex-col justify-end items-center gap-10 cursor-pointer bg-white rounded shadow-lg">
+            <div className="w-72 h-96 flex flex-col justify-end items-center gap-10 cursor-pointer bg-white rounded shadow-boxShadow">
               <h4 className="text-textHeadColor text-xl font-semibold leading-normal not-italic">
                 {item.head}
               </h4>
