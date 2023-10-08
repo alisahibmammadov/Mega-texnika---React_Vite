@@ -8,7 +8,7 @@ function Techniques({ siteLang, texnikalarData }) {
   const items = texnikalarData.map((item, index) => (
     <div
       key={index}
-      className="w-80 h-[545px] shadow-boxShadow mx-5 bg-white my-2"
+      className="w-72 h-[545px] shadow-boxShadow mx-9 bg-white my-2"
     >
       <img key={index} src={item.img} alt={item.head} className="w-full" />
       <nav className="flex flex-col items-center justify-between grow h-64  px-8">
