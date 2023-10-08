@@ -8,10 +8,10 @@ function Techniques({ siteLang, texnikalarData }) {
   const items = texnikalarData.map((item, index) => (
     <div
       key={index}
-      className="w-72 h-[545px] shadow-boxShadow mx-9 bg-white my-2"
+      className="w-56 sm:w-72 h-[545px] shadow-boxShadow mx-9 bg-white my-2"
     >
       <img key={index} src={item.img} alt={item.head} className="w-full" />
-      <nav className="flex flex-col items-center justify-between grow h-64  px-8">
+      <nav className="flex flex-col items-center justify-between grow h-64  px-4 md:px-8">
         <div className="flex flex-col gap-1 self-start">
           <span className=" text-textHeadColor text-lg font-semibold">
             {siteLang === "az"
@@ -31,7 +31,7 @@ function Techniques({ siteLang, texnikalarData }) {
         </div>
 
         <nav className="flex flex-col text-right self-end">
-          <span className="text-textHover font-semibold text-lg">
+          <span className="text-textHover font-semibold text-sm md:text-lg">
             {item.priceMonth} /{" "}
             {siteLang === "az"
               ? "ay"
@@ -41,7 +41,7 @@ function Techniques({ siteLang, texnikalarData }) {
               ? "месяц"
               : null}{" "}
           </span>
-          <span className="text-textHover font-semibold text-lg">
+          <span className="text-textHover font-semibold text-sm md:text-lg">
             {item.priceDay} /{" "}
             {siteLang === "az"
               ? "gün"
@@ -54,9 +54,9 @@ function Techniques({ siteLang, texnikalarData }) {
         </nav>
         <Link
           to=""
-          className="text-textColor font-bold rounded-3xl border-2 flex items-center justify-center text-xs not-italic w-64 h-10 hover:bg-textHover"
+          className="text-textColor font-bold rounded-3xl border-2 flex items-center justify-center text-xs not-italic w-52 md:w-64 h-10 hover:bg-textHover"
         >
-          İcarə et
+          
           {siteLang === "az"
               ? "İcarə et"
               : siteLang === "en"
