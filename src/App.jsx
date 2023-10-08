@@ -8,9 +8,13 @@ import Footer from "./layout/Footer.jsx";
 import linkDataAz from "./data/az/linkData";
 import linkDataEn from "./data/en/linkData";
 import linkDataRu from "./data/ru/linkData";
+import texnikalarAz from './data/az/texnikalarAz'
+import texnikalarEn from './data/en/texnikalarEn'
+import texnikalarRu from './data/ru/texnikalarRu'
 
 function App() {
   const [linkData, setLinkData] = useState([]);
+  const [texnikalarData, setTexnikalarData] = useState([]);
   const [siteLang, setSiteLang] = useState();
   
 
@@ -18,10 +22,13 @@ function App() {
     setSiteLang(JSON.parse(localStorage.getItem("lang")));
     if (siteLang === "az") {
       setLinkData(linkDataAz);
+      setTexnikalarData(texnikalarAz)
     } else if (siteLang === "en") {
       setLinkData(linkDataEn);
+      setTexnikalarData(texnikalarEn)
     } else {
       setLinkData(linkDataRu);
+      setTexnikalarData(texnikalarRu)
     }
   }, [siteLang]);
 
@@ -35,7 +42,7 @@ function App() {
         <Header siteLang={siteLang} />
         <Navbar handleLang={handleLang} linkData={linkData}  />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home texnikalarData={texnikalarData} siteLang={siteLang}/>} />
         </Routes>
         <Footer siteLang={siteLang} linkData={linkData}/>
       </BrowserRouter>

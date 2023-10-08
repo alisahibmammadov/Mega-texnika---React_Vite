@@ -8,6 +8,7 @@ export default {
         customColor: "#FFC01F",
         textColor: "#353535",
         textHover: "#FFC01F",
+        textHeadColor:"#596C72",
       },
     },
   },
