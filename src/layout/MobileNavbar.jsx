@@ -15,11 +15,11 @@ function MobileNavbar({ linkData, handleLang }) {
   }, [btn]);
 
   return (
-    <main className="bg-white absolute w-full  top-[110px] left-[0px] h-screen pb-3 ">
+    <main className="bg-white absolute w-full  top-[110px] left-[0px] h-[125vh] pb-3 ">
       <nav className="flex flex-col gap-5 items-start h-full pl-8">
         {linkData.map((item, index) => (
           <Link
-            to={item.link}
+            to={item.link !== "techniques" ? item.link : null }
             onClick={item.link === "techniques" ? handleClick : null}
             className={
               item.link === "techniques"

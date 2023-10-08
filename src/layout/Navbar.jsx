@@ -7,6 +7,7 @@ import LangBtn from "../components/LangBtn";
 import Bar from "../assets/icons/bar.svg";
 import MobileNavbar from "./MobileNavbar";
 function Navbar({ handleLang, linkData }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mobile, setMobile] = useState(false);
   const [modal, setModal] = useState(false);
   const modalRef = useRef(null);
@@ -21,13 +22,33 @@ function Navbar({ handleLang, linkData }) {
   };
   const handleClickMobile = () => {
     setMobile(!mobile);
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isMobileMenuOpen) {
+        if (window.scrollY > 280) {
+          window.scrollTo(0, 280); // Yukarıya scroll yapma
+        }
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      window.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMobileMenuOpen]);
+
   useEffect(() => {
     window.addEventListener("resize", () => {
       if (window.innerWidth > 640) {
         setMobile(false);
       }
     });
+
     window.addEventListener("mousedown", handleOutsideClick);
 
     return () => {
