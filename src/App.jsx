@@ -8,43 +8,71 @@ import Footer from "./layout/Footer.jsx";
 import linkDataAz from "./data/az/linkData";
 import linkDataEn from "./data/en/linkData";
 import linkDataRu from "./data/ru/linkData";
-import texnikalarAz from './data/az/texnikalarAz'
-import texnikalarEn from './data/en/texnikalarEn'
-import texnikalarRu from './data/ru/texnikalarRu'
+import texnikalarAz from "./data/az/texnikalarAz";
+import texnikalarEn from "./data/en/texnikalarEn";
+import texnikalarRu from "./data/ru/texnikalarRu";
 
 function App() {
   const [linkData, setLinkData] = useState([]);
   const [texnikalarData, setTexnikalarData] = useState([]);
   const [siteLang, setSiteLang] = useState();
-  
+  const [topBtn, setTopBtn] = useState(false);
 
   useEffect(() => {
+    const topBtnScroll = () => {
+      if (window.pageYOffset > 10) {
+        setTopBtn(true);
+      } else {
+        setTopBtn(false);
+      }
+    };
+    window.addEventListener("scroll", topBtnScroll);
     setSiteLang(JSON.parse(localStorage.getItem("lang")));
     if (siteLang === "az") {
       setLinkData(linkDataAz);
-      setTexnikalarData(texnikalarAz)
+      setTexnikalarData(texnikalarAz);
     } else if (siteLang === "en") {
       setLinkData(linkDataEn);
-      setTexnikalarData(texnikalarEn)
+      setTexnikalarData(texnikalarEn);
     } else {
       setLinkData(linkDataRu);
-      setTexnikalarData(texnikalarRu)
+      setTexnikalarData(texnikalarRu);
     }
+    return () => {
+      window.removeEventListener("scroll", topBtnScroll);
+    };
   }, [siteLang]);
 
   const handleLang = (lang) => {
     setSiteLang(lang);
     localStorage.setItem("lang", JSON.stringify(lang));
   };
+
+  const handleClickTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <div>
+      {topBtn ? (
+        <div className="top hover:bg-textHover hover:cursor-pointer hover:text-white w-10 h-10 rounded-full flex items-center justify-center shadow-boxShadow" onClick={handleClickTop}>
+         <i className="fa-solid fa-chevron-up"></i>
+        </div>
+      ) : null}
       <BrowserRouter>
         <Header siteLang={siteLang} />
-        <Navbar handleLang={handleLang} linkData={linkData}  />
+        <Navbar handleLang={handleLang} linkData={linkData} />
         <Routes>
-          <Route path="/" element={<Home texnikalarData={texnikalarData} siteLang={siteLang}/>} />
+          <Route
+            path="/"
+            element={
+              <Home texnikalarData={texnikalarData} siteLang={siteLang} />
+            }
+          />
         </Routes>
-        <Footer siteLang={siteLang} linkData={linkData}/>
+        <Footer siteLang={siteLang} linkData={linkData} />
       </BrowserRouter>
     </div>
   );
