@@ -87,7 +87,6 @@ function Techniques({ siteLang, texnikalarData }) {
       </header>
       <section className="container mx-auto">
         <AliceCarousel
-          autoPlay={2000}
           infinite={true}
           responsive={responsiveness}
           mouseTracking

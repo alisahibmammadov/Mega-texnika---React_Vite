@@ -2,15 +2,15 @@ import brand from "../../data/brand.js";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import PropTypes from "prop-types";
-function Brand({siteLang}) {
+function Brand({ siteLang }) {
   const items = brand.map((item, index) => (
-    <img key={index} src={item.img} alt="Brand" className="mx-9 my-2"/>
+    <img key={index} src={item.img} alt="Brand" className="mx-9 my-2" />
   ));
   const responsiveness = {
     0: { items: 1 },
     425: { items: 2 },
     768: { items: 3 },
-    1024: { items: 5 },
+    1024: { items: 6 },
   };
   return (
     <main className="py-16 flex flex-col gap-10 px-3 ">
@@ -29,7 +29,7 @@ function Brand({siteLang}) {
         <AliceCarousel
           items={items}
           mouseTracking
-          autoPlay={2000}
+          autoPlay
           infinite={true}
           responsive={responsiveness}
         />
@@ -41,5 +41,5 @@ function Brand({siteLang}) {
 export default Brand;
 
 Brand.propTypes = {
-    siteLang: PropTypes.string.isrequired
-}
+  siteLang: PropTypes.string.isrequired,
+};
