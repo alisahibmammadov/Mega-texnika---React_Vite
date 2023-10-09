@@ -12,3 +12,6 @@
 .alice-carousel__next-btn span {
   display: none;
 }
+.alice-carousel__dots {
+  display: none;
+}

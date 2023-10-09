@@ -56,14 +56,13 @@ function Techniques({ siteLang, texnikalarData }) {
           to=""
           className="text-textColor font-bold rounded-3xl border-2 flex items-center justify-center text-xs not-italic w-52 md:w-64 h-10 hover:bg-textHover"
         >
-          
           {siteLang === "az"
-              ? "İcarə et"
-              : siteLang === "en"
-              ? "Rent it"
-              : siteLang === "ru"
-              ? "Арендуйте это"
-              : null}
+            ? "İcarə et"
+            : siteLang === "en"
+            ? "Rent it"
+            : siteLang === "ru"
+            ? "Арендуйте это"
+            : null}
         </Link>
       </nav>
     </div>
@@ -85,6 +84,8 @@ function Techniques({ siteLang, texnikalarData }) {
             ? "Техники"
             : null}
         </h5>
+      </header>
+      <section className="container mx-auto">
         <AliceCarousel
           autoPlay={2000}
           infinite={true}
@@ -92,7 +93,7 @@ function Techniques({ siteLang, texnikalarData }) {
           mouseTracking
           items={items}
         />
-      </header>
+      </section>
     </main>
   );
 }

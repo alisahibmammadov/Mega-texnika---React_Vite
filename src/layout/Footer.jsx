@@ -53,7 +53,7 @@ function Footer({ siteLang, linkData }) {
               : siteLang === "en"
               ? "Schedule (our working hours)"
               : siteLang === "ru"
-              ? "Qrafik (iş saatlarımız)"
+              ? "График работы (время работы)"
               : null}
             : B.e - Ş. 10:00 - 19:00
           </span>
