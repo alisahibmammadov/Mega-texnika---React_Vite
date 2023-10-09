@@ -57,7 +57,7 @@ function App() {
   return (
     <div>
       {topBtn ? (
-        <div className="top hover:bg-textHover hover:cursor-pointer hover:text-white w-10 h-10 rounded-full flex items-center justify-center shadow-boxShadow" onClick={handleClickTop}>
+        <div className="top hover:bg-textHover hover:cursor-pointer hover:text-white w-12 h-12 rounded-full flex items-center justify-center shadow-boxShadow" onClick={handleClickTop}>
          <i className="fa-solid fa-chevron-up"></i>
         </div>
       ) : null}
