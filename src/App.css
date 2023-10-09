@@ -22,4 +22,5 @@ body{
   position: fixed;
   bottom: 5%;
   right: 8%;
+  z-index: 99999;
 }

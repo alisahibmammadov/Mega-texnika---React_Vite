@@ -11,10 +11,14 @@ import linkDataRu from "./data/ru/linkData";
 import texnikalarAz from "./data/az/texnikalarAz";
 import texnikalarEn from "./data/en/texnikalarEn";
 import texnikalarRu from "./data/ru/texnikalarRu";
+import newsAz from './data/az/newsAz'
+import newsEn from './data/en/newsEn'
+import newsRu from './data/ru/newsRu'
 
 function App() {
   const [linkData, setLinkData] = useState([]);
   const [texnikalarData, setTexnikalarData] = useState([]);
+  const [newsData,setNewsData] = useState([])
   const [siteLang, setSiteLang] = useState();
   const [topBtn, setTopBtn] = useState(false);
 
@@ -31,12 +35,15 @@ function App() {
     if (siteLang === "az") {
       setLinkData(linkDataAz);
       setTexnikalarData(texnikalarAz);
+      setNewsData(newsAz)
     } else if (siteLang === "en") {
       setLinkData(linkDataEn);
       setTexnikalarData(texnikalarEn);
+      setNewsData(newsEn)
     } else {
       setLinkData(linkDataRu);
       setTexnikalarData(texnikalarRu);
+      setNewsData(newsRu)
     }
     return () => {
       window.removeEventListener("scroll", topBtnScroll);
@@ -57,8 +64,11 @@ function App() {
   return (
     <div>
       {topBtn ? (
-        <div className="top hover:bg-textHover hover:cursor-pointer hover:text-white w-12 h-12 rounded-full flex items-center justify-center shadow-boxShadow" onClick={handleClickTop}>
-         <i className="fa-solid fa-chevron-up"></i>
+        <div
+          className="top bg-textHeadColor hover:bg-textHover hover:cursor-pointer hover:text-white w-12 h-12 rounded-full flex items-center justify-center shadow-boxShadow"
+          onClick={handleClickTop}
+        >
+          <i className="fa-solid fa-chevron-up"></i>
         </div>
       ) : null}
       <BrowserRouter>
@@ -68,7 +78,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Home texnikalarData={texnikalarData} siteLang={siteLang} />
+              <Home texnikalarData={texnikalarData} newsData={newsData} siteLang={siteLang} />
             }
           />
         </Routes>
