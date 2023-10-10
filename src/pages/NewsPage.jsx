@@ -5,64 +5,26 @@ import newsEn from "../data/en/newsEn";
 import newsRu from "../data/ru/newsRu";
 import { useEffect, useState } from "react";
 
-function NewsPage({ selectedNews, siteLang }) {
-  const [matchingItems, setMatchingItems] = useState(selectedNews);
+function NewsPage({ siteLang }) {
+  const [matchingItems, setMatchingItems] = useState([]);
   const { id } = useParams();
-  const [data, setData] = useState([]);
-  //   console.log(matchingItems);
 
   useEffect(() => {
+    let data = [];
     if (siteLang === "az") {
-      setData(newsAz.find((item) => item.id === Number(id)));
-      if (data) {
-        setMatchingItems([data]);
-      }
-      console.log(matchingItems);
+      data = newsAz.find((item) => item.id === Number(id));
     } else if (siteLang === "en") {
-      console.log("hello");
-      setData(newsEn.find((item) => item.id === Number(id)));
-      if (data) {
-        setMatchingItems([data]);
-      }
+      data = newsEn.find((item) => item.id === Number(id));
     } else if (siteLang === "ru") {
-      console.log("privet");
-      setData(newsRu.find((item) => item.id === Number(id)));
-      if (data) {
-        setMatchingItems([data]);
-      }
+      data = newsRu.find((item) => item.id === Number(id));
     }
     console.log(data);
-  }, [siteLang]);
-
-  //   function findMatchingData(data1, id) {
-  //     const matchingData = [];
-
-  //     for (const item1 of data1) {
-  //         if (item1.id === id) {
-  //           matchingData.push(item1);
-  //           console.log(item1);
-  //           console.log(id);
-  //           break;
-  //         }
-  //     }
-  //     console.log(matchingData);
-  //     return matchingData;
-  //   }
-
-  //   useEffect(() => {
-
-  //     if (siteLang === "az") {
-  //       setMatchingItems(findMatchingData(newsAz, id));
-  //     } else if (siteLang === "en") {
-  //       setMatchingItems(findMatchingData(newsEn, id));
-  //     } else if (siteLang === "ru") {
-  //       setMatchingItems(findMatchingData(newsRu, id));
-  //     }
-  //   }, [siteLang]);
+    setMatchingItems([data]);
+  }, [siteLang, id]);
 
   return (
     <main className="py-16 flex flex-col gap-8 px-3">
-      <header className="container mx-auto flex items-center gap-2">
+      <header className="container mx-auto flex items-center gap-1 sm:gap-2 px-5 sm:px-0 ">
         <Link
           to="/"
           className="text-[#ADADAD] text-xs  leading-normal hover:text-textHover font-normal"
@@ -75,7 +37,7 @@ function NewsPage({ selectedNews, siteLang }) {
             ? "Домашняя страница"
             : null}
         </Link>
-        <span className="w-1 h-5 bg-[#686868]"></span>
+        <span className="w-[2px] h-5 bg-[#686868]"></span>
         <Link
           to="/blog"
           className="text-[#ADADAD] text-xs  leading-normal hover:text-textHover font-medium"
@@ -88,65 +50,50 @@ function NewsPage({ selectedNews, siteLang }) {
             ? "Блог"
             : null}
         </Link>
-        <span className="w-1 h-5 bg-[#686868]"></span>
-        {/* {matchingItems.map((item, index) => (
+        <span className="w-[2px] h-5 bg-[#686868]"></span>
+        {matchingItems.map((item, index) => (
           <span
             key={index}
             className="text-textHeadColor text-xs  leading-normal font-medium"
           >
             {item.head}
           </span>
-        ))} */}
+        ))}
       </header>
 
-      {/* {matchingItems?.map((item, index) => (
+      {matchingItems?.map((item, index) => (
         <section
           key={index}
-          className="container mx-auto flex justify-between items-center"
+          className="container mx-auto w-full flex flex-col gap-8 md:gap-0 md:flex-row flex-wrap justify-between items-center px-5 sm:px-0"
         >
-          <div>
-            <h2>{item.head}</h2>
-            <span>{item.date}</span>
-            <p>{item.infoF}</p>
-            <p>{item.infoT}</p>
+          <div className="md:w-1/2 flex flex-col gap-2 w-full">
+            <h2 className="text-textHeadColor md:text-2xl lg:text-3xl xl:text-5xl text-3xl leading-normal font-bold text-center md:text-left">
+              {item.head}
+            </h2>
+            <span className="text-[#686868]  text-sm font-normal text-center md:text-left">
+              {item.date}
+            </span>
+            <div className="flex flex-col gap-5 mt-5">
+              <p className="text-[#353535] text-xs xl:text-sm font-normal leading-normal text-center md:text-left">
+                {item.infoF}
+              </p>
+              <p className="text-[#353535] text-xs xl:text-sm font-normal leading-normal text-center md:text-left">
+                {item.infoT}
+              </p>
+            </div>
           </div>
-          <div className="shadow-boxShadow p-2">
-            <img src={item.img} alt="" />
+          <div className="md:w-1/3 w-full ">
+            <div className="shadow-boxShadow p-2">
+              <img src={item.img} alt="" className="w-full" />
+            </div>
           </div>
         </section>
-      ))} */}
+      ))}
     </main>
   );
 }
 
 export default NewsPage;
 NewsPage.propTypes = {
-  selectedNews: PropTypes.string.isRequired,
   siteLang: PropTypes.string.isRequired,
 };
-//   useEffect(() => {
-//     // Local Storage'dan veriyi al
-//     const storedData = JSON.parse(localStorage.getItem("selectedNews"));
-
-//     if (storedData) {
-//       // Eğer Local Storage'da veri varsa, eşleşen verileri ayarla
-//       setMatchingItems(storedData);
-//     } else {
-//       // Eğer Local Storage'da veri yoksa, eşleşen verileri hesapla
-//       let data = [];
-
-//       if (siteLang === "az") {
-//         data = findMatchingData(newsAz, selectedNews);
-//       } else if (siteLang === "en") {
-//         data = findMatchingData(newsEn, selectedNews);
-//       } else if (siteLang === "ru") {
-//         data = findMatchingData(newsRu, selectedNews);
-//       }
-
-//       // Hesaplanan veriyi Local Storage'a kaydet
-//       localStorage.setItem("selectedNews", JSON.stringify(data));
-
-//       // Hesaplanan veriyi state'e ayarla
-//       setMatchingItems(data);
-//     }
-//   }, [siteLang, selectedNews]);

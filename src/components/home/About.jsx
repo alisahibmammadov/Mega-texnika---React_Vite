@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function About({ siteLang }) {
   return (
-    <main className="py-8 flex gap-10 px-3 ">
+    <main className="py-16 flex gap-10 px-3 ">
       <section className="container mx-auto flex  items-end justify-between gap-5 px-5 sm:px-0">
         <div className="p-2 shadow-boxShadow hidden lg:flex ">
           <img src={Texnika1} alt="Texnika" />

@@ -22,7 +22,6 @@ function App() {
   const [newsData, setNewsData] = useState([]);
   const [siteLang, setSiteLang] = useState();
   const [topBtn, setTopBtn] = useState(false);
-  const [selectedNews, setSelectedNews] = useState([]);
 
   useEffect(() => {
     const topBtnScroll = () => {
@@ -67,7 +66,7 @@ function App() {
     <div>
       {topBtn ? (
         <div
-          className="top bg-textHeadColor hover:bg-textHover hover:cursor-pointer hover:text-white w-12 h-12 rounded-full flex items-center justify-center shadow-boxShadow"
+          className="top bg-[#fff5dc] hover:bg-textHover hover:cursor-pointer hover:text-white w-12 h-12 rounded-full flex items-center justify-center shadow-boxShadow"
           onClick={handleClickTop}
         >
           <i className="fa-solid fa-chevron-up"></i>
@@ -84,14 +83,14 @@ function App() {
                 texnikalarData={texnikalarData}
                 newsData={newsData}
                 siteLang={siteLang}
-                setSelectedNews={setSelectedNews}
+                
               />
             }
           />
           <Route
             path="/news/:id"
             element={
-              <NewsPage selectedNews={selectedNews} siteLang={siteLang} />
+              <NewsPage  siteLang={siteLang} />
             }
           />
         </Routes>
