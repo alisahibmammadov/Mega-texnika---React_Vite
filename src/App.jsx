@@ -11,16 +11,18 @@ import linkDataRu from "./data/ru/linkData";
 import texnikalarAz from "./data/az/texnikalarAz";
 import texnikalarEn from "./data/en/texnikalarEn";
 import texnikalarRu from "./data/ru/texnikalarRu";
-import newsAz from './data/az/newsAz'
-import newsEn from './data/en/newsEn'
-import newsRu from './data/ru/newsRu'
+import newsAz from "./data/az/newsAz";
+import newsEn from "./data/en/newsEn";
+import newsRu from "./data/ru/newsRu";
+import NewsPage from "./pages/NewsPage";
 
 function App() {
   const [linkData, setLinkData] = useState([]);
   const [texnikalarData, setTexnikalarData] = useState([]);
-  const [newsData,setNewsData] = useState([])
+  const [newsData, setNewsData] = useState([]);
   const [siteLang, setSiteLang] = useState();
   const [topBtn, setTopBtn] = useState(false);
+  const [selectedNews, setSelectedNews] = useState([]);
 
   useEffect(() => {
     const topBtnScroll = () => {
@@ -35,15 +37,15 @@ function App() {
     if (siteLang === "az") {
       setLinkData(linkDataAz);
       setTexnikalarData(texnikalarAz);
-      setNewsData(newsAz)
+      setNewsData(newsAz);
     } else if (siteLang === "en") {
       setLinkData(linkDataEn);
       setTexnikalarData(texnikalarEn);
-      setNewsData(newsEn)
+      setNewsData(newsEn);
     } else {
       setLinkData(linkDataRu);
       setTexnikalarData(texnikalarRu);
-      setNewsData(newsRu)
+      setNewsData(newsRu);
     }
     return () => {
       window.removeEventListener("scroll", topBtnScroll);
@@ -78,7 +80,18 @@ function App() {
           <Route
             path="/"
             element={
-              <Home texnikalarData={texnikalarData} newsData={newsData} siteLang={siteLang} />
+              <Home
+                texnikalarData={texnikalarData}
+                newsData={newsData}
+                siteLang={siteLang}
+                setSelectedNews={setSelectedNews}
+              />
+            }
+          />
+          <Route
+            path="/news/:id"
+            element={
+              <NewsPage selectedNews={selectedNews} siteLang={siteLang} />
             }
           />
         </Routes>

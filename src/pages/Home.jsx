@@ -6,7 +6,7 @@ import WhyWe from "../components/home/WhyWe";
 import Brand from "../components/home/Brand";
 import About from "../components/home/About";
 import HomeNews from "../components/home/HomeNews";
-function Home({ texnikalarData, siteLang, newsData }) {
+function Home({ texnikalarData, siteLang, newsData,setSelectedNews }) {
   return (
     <div>
       <Header siteLang={siteLang} />
@@ -14,7 +14,7 @@ function Home({ texnikalarData, siteLang, newsData }) {
       <About siteLang={siteLang} />
       <Techniques texnikalarData={texnikalarData} siteLang={siteLang} />
       <Brand siteLang={siteLang} />
-      <HomeNews newsData={newsData} siteLang={siteLang} />
+      <HomeNews newsData={newsData} siteLang={siteLang} setSelectedNews={setSelectedNews}/>
       <WhyWe siteLang={siteLang} />
     </div>
   );
@@ -25,4 +25,5 @@ Home.propTypes = {
   texnikalarData: PropTypes.string.isRequired,
   siteLang: PropTypes.string.isRequired,
   newsData: PropTypes.string.isRequired,
+  setSelectedNews: PropTypes.string.isRequired,
 };

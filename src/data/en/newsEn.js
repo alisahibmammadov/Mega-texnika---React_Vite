@@ -1,11 +1,11 @@
 import Texnika1 from "../../../public/images/xeber/image1.png";
-import Texnika2 from "../../../public/images/xeber/image1.png";
-import Texnika3 from "../../../public/images/xeber/image1.png";
-import Texnika4 from "../../../public/images/xeber/image1.png";
-import Texnika5 from "../../../public/images/xeber/image1.png";
-import Texnika6 from "../../../public/images/xeber/image1.png";
-import Texnika7 from "../../../public/images/xeber/image1.png";
-import Texnika8 from "../../../public/images/xeber/image1.png";
+import Texnika2 from "../../../public/images/xeber/image2.png";
+import Texnika3 from "../../../public/images/xeber/image3.png";
+import Texnika4 from "../../../public/images/xeber/image4.png";
+import Texnika5 from "../../../public/images/xeber/image5.png";
+import Texnika6 from "../../../public/images/xeber/image6.png";
+import Texnika7 from "../../../public/images/xeber/image7.png";
+import Texnika8 from "../../../public/images/xeber/image8.png";
 
 const newsAz = [
   {
