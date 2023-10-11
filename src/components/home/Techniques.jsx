@@ -73,7 +73,7 @@ function Techniques({ siteLang, texnikalarData }) {
     1024: { items: 3 },
   };
   return (
-    <main className="py-16 flex flex-col gap-8 px-3">
+    <main className="py-16 flex flex-col  gap-8 px-3">
       <header className="container mx-auto px-5 sm:px-0">
         <h5 className="text-textHeadColor text-3xl font-bold leading-normal not-italic flex justify-center sm:justify-between">
           {siteLang === "az"
@@ -85,13 +85,14 @@ function Techniques({ siteLang, texnikalarData }) {
             : null}
         </h5>
       </header>
-      <section className="container mx-auto">
+      <section className="container mx-auto flex flex-col ">
         <AliceCarousel
           infinite={true}
           responsive={responsiveness}
           mouseTracking
           items={items}
         />
+        <Link to='/techniques' className="mx-auto bg-white shadow-boxShadow h-10 w-44 flex items-center justify-center text-[#353535] rounded-3xl text-sm font-bold hover:bg-textHover">{siteLang === 'az'? 'Hamısına bax' : siteLang ==='en'? 'See all':siteLang === 'ru'? "Увидеть все" :null}</Link>
       </section>
     </main>
   );

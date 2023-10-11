@@ -14,7 +14,11 @@ import texnikalarRu from "./data/ru/texnikalarRu";
 import newsAz from "./data/az/newsAz";
 import newsEn from "./data/en/newsEn";
 import newsRu from "./data/ru/newsRu";
+import techniquesTypeAz from './data/az/techniquesTypeAz'
+import techniquesTypeEn from './data/en/techniquesTypeEn'
+import techniquesTypeRu from './data/ru/techniquesTypeRu'
 import NewsPage from "./pages/NewsPage";
+import Techniques from "./pages/Techniques";
 
 function App() {
   const [linkData, setLinkData] = useState([]);
@@ -22,6 +26,7 @@ function App() {
   const [newsData, setNewsData] = useState([]);
   const [siteLang, setSiteLang] = useState();
   const [topBtn, setTopBtn] = useState(false);
+  const [techniquesType,setTechniquesType] = useState([])
 
   useEffect(() => {
     const topBtnScroll = () => {
@@ -37,14 +42,17 @@ function App() {
       setLinkData(linkDataAz);
       setTexnikalarData(texnikalarAz);
       setNewsData(newsAz);
+      setTechniquesType(techniquesTypeAz)
     } else if (siteLang === "en") {
       setLinkData(linkDataEn);
       setTexnikalarData(texnikalarEn);
       setNewsData(newsEn);
+      setTechniquesType(techniquesTypeEn)
     } else {
       setLinkData(linkDataRu);
       setTexnikalarData(texnikalarRu);
       setNewsData(newsRu);
+      setTechniquesType(techniquesTypeRu)
     }
     return () => {
       window.removeEventListener("scroll", topBtnScroll);
@@ -93,6 +101,7 @@ function App() {
               <NewsPage  siteLang={siteLang} />
             }
           />
+          <Route path="/techniques" element={<Techniques siteLang={siteLang} texnikalarData={texnikalarData} techniquesType={techniquesType}/>}/>
         </Routes>
         <Footer siteLang={siteLang} linkData={linkData} />
       </BrowserRouter>
