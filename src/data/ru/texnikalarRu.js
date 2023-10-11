@@ -13,7 +13,7 @@ import Traktor from "../../../public/images/texnikalar/traktor.png";
 const texnikalarRu = [
   {
     id: 1,
-    class: "Excavator-loader",
+    class: "Экскаватор-погрузчик",
     head: "Экскаватор-погрузчик",
     img: EkskavatorYukleyici,
     name: "Экскаватор-погрузчик",
@@ -25,7 +25,7 @@ const texnikalarRu = [
   },
   {
     id: 2,
-    class: "Excavators",
+    class: "Экскаваторы",
     head: "Экскаваторы",
     img: Ekskavator,
     name: "Экскаватор",
@@ -37,7 +37,7 @@ const texnikalarRu = [
   },
   {
     id: 3,
-    class: "Autocranes",
+    class: "Автокраны",
     head:"Автокраны",
     img: Avtokran,
     name: "Автокран",
@@ -49,7 +49,7 @@ const texnikalarRu = [
   },
   {
     id: 4,
-    class: "Forklifts",
+    class: "Вилочные-погрузчики",
     head: "Вилочные-погрузчики",
     img: Forklift,
     name: "Вилочный погрузчик",
@@ -61,7 +61,7 @@ const texnikalarRu = [
   },
   {
     id: 5,
-    class: "Forklifts",
+    class: "Вилочные-погрузчики",
     head: "Вилочные-погрузчики",
     img: Forklift2,
     name: "Вилочный погрузчик",
@@ -74,7 +74,7 @@ const texnikalarRu = [
 
   {
     id: 6,
-    class: "Tractors",
+    class: "Тракторы",
     head: "Тракторы",
     img: Traktor,
     name: "Трактор",
@@ -86,7 +86,7 @@ const texnikalarRu = [
   },
   {
     id: 7,
-    class: "Lifting-baskets",
+    class: "Подъемные-корзины",
     head: "Подъемные-корзины",
     img: QaldiriciSebet,
     name: "Подъемная корзина",
@@ -98,7 +98,7 @@ const texnikalarRu = [
   },
   {
     id: 8,
-    class: "Katok",
+    class: "Каток",
     head: "Каток",
     img: Katok,
     name: "Каток",
@@ -110,7 +110,7 @@ const texnikalarRu = [
   },
   {
     id: 9,
-    class: "Bobcat",
+    class: "Бобкэт",
     head: "Бобкэт",
     img: Bobcat,
     name: "Бобкэт",
@@ -122,7 +122,7 @@ const texnikalarRu = [
   },
   {
     id: 10,
-    class: "Shacman",
+    class: "Шакман",
     head: "Шакман",
     img: Shacman,
     name: "Шакман",
@@ -134,7 +134,7 @@ const texnikalarRu = [
   },
   {
     id: 11,
-    class: "Pump",
+    class: "Насос",
     head: "Насос",
     img: Pompa,
     name: "Насос",

@@ -1,35 +1,37 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+const initialCardsType = localStorage.getItem("cardsType");
 function Techniques({ siteLang, texnikalarData, techniquesType }) {
   const [cardsType, setCardsType] = useState(
+    initialCardsType ||
+      (siteLang === "az"
+        ? "Hamısı"
+        : siteLang === "en"
+        ? "All"
+        : siteLang === "ru"
+        ? "Все"
+        : null)
+  );
+  const handleClickType = (type) => {
+    if (type === "All") {
+      setCardsType("All");
+    } else {
+      setCardsType(type);
+    }
+  };
+  const type =
     siteLang === "az"
       ? "Hamısı"
       : siteLang === "en"
       ? "All"
       : siteLang === "ru"
       ? "Все"
-      : null
-  );
-
-  const handleClickType = (type) => {
-    if (type == "All" || type === "Все" || type === "Hamısı") {
-      setCardsType(
-        siteLang === "az"
-          ? "Hamısı"
-          : siteLang === "en"
-          ? "All"
-          : siteLang === "ru"
-          ? "Все"
-          : null
-      );
-    } else {
-      setCardsType(type);
-    }
-  };
-  console.log(cardsType);
-
+      : null;
+  useEffect(() => {
+    localStorage.setItem("cardsType", type);
+    // let data = cardsType === type.type ? "bg-textHover text-white" : ""
+  }, [cardsType, type]);
   return (
     <main className="py-16 flex flex-col gap-8 px-3">
       <header className="container mx-auto flex items-center gap-1 sm:gap-2 px-5 sm:px-0 ">
@@ -69,22 +71,17 @@ function Techniques({ siteLang, texnikalarData, techniquesType }) {
         <nav className="flex flex-wrap gap-5">
           {techniquesType.map((type, index) => (
             <button
-              className="h-10 px-5 text-[#353535] text-sm font-bold shadow-boxShadow rounded-3xl hover:bg-textHover"
+            className={`h-10 px-5 text-[#353535] text-sm font-bold shadow-boxShadow rounded-3xl hover:bg-textHover ${cardsType === type.type ? "bg-textHover text-white" : ""}`}
+              // className={`${cardsType === type.type ? "bg-textHover text-white":null} h-10 px-5 text-[#353535] text-sm font-bold shadow-boxShadow rounded-3xl hover:bg-textHover`}
               key={index}
-              onClick={() => handleClickType(type)}
+              onClick={() => handleClickType(type.type)}
             >
-              {type}
+              {type.type}
             </button>
           ))}
         </nav>
       </nav>
       <section className="container mx-auto flex flex-wrap justify-center sm:justify-between">
-        {/* <AliceCarousel
-          infinite={true}
-          responsive={responsiveness}
-          mouseTracking
-          items={items}
-        /> */}
         {texnikalarData
           .filter(
             (item) =>
@@ -98,7 +95,6 @@ function Techniques({ siteLang, texnikalarData, techniquesType }) {
               key={index}
               className="w-56 sm:w-72 h-[545px] shadow-boxShadow mx-1 bg-white my-2"
             >
-              {console.log(item.class)}
               <img
                 key={index}
                 src={item.img}

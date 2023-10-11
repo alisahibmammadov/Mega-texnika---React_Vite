@@ -13,7 +13,7 @@ import Traktor from "../../../public/images/texnikalar/traktor.png";
 const texnikalarAz = [
   {
     id: 1,
-    class:"Excavator-loader",
+    class:"Ekskavator-yükləyici",
     head: "Ekskavator-yükləyici",
     img: EkskavatorYukleyici,
     name: "Ekskavator yükləyici",
@@ -25,7 +25,7 @@ const texnikalarAz = [
   },
   {
     id: 2,
-    class:"Excavators",
+    class:"Ekskavatorlar",
     head: "Ekskavatorlar",
     img: Ekskavator,
     name: "Ekskavator",
@@ -37,7 +37,7 @@ const texnikalarAz = [
   },
   {
     id: 3,
-    class:"Autocranes",
+    class:"Avtokranlar",
     head: "Avtokranlar",
     img: Avtokran,
     name: "Avtokran",
@@ -49,7 +49,7 @@ const texnikalarAz = [
   },
   {
     id: 4,
-    class:"Forklifts",
+    class:"Forkliftlər",
     head: "Forkliftlər",
     img: Forklift,
     name: "Forklift",
@@ -61,7 +61,7 @@ const texnikalarAz = [
   },
   {
     id: 5,
-    class:"Forklifts",
+    class:"Forkliftlər",
     head: "Forkliftlər",
     img: Forklift2,
     name: "Forklift",
@@ -74,7 +74,7 @@ const texnikalarAz = [
 
   {
     id: 6,
-    class:"Tractors",
+    class:"Traktorlar",
     head: "Traktorlar",
     img: Traktor,
     name: "Traktor",
@@ -86,7 +86,7 @@ const texnikalarAz = [
   },
   {
     id: 7,
-    class:"Lifting-baskets",
+    class:"Qaldırıcı-səbətlər",
     head: "Qaldırıcı-səbətlər",
     img: QaldiriciSebet,
     name: "Qaldırıcı səbət",
@@ -134,7 +134,7 @@ const texnikalarAz = [
   },
   {
     id: 11,
-    class:"Pump",
+    class:"Pompa",
     head: "Pompa",
     img: Pompa,
     name: "Pompa",
