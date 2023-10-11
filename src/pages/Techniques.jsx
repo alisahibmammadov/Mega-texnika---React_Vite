@@ -94,7 +94,7 @@ function Techniques({ siteLang, texnikalarData, techniquesType }) {
             <div
               key={index}
               className="w-56 sm:w-72 h-[545px] shadow-boxShadow mx-1 bg-white my-2"
-            >
+            > 
               <img
                 key={index}
                 src={item.img}
