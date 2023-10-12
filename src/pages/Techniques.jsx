@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-const initialCardsType = localStorage.getItem("cardsType");
 function Techniques({ siteLang, texnikalarData, techniquesType }) {
+  const initialCardsType = localStorage.getItem("cardsType");
   const [cardsType, setCardsType] = useState(
     initialCardsType ||
       (siteLang === "az"
@@ -11,27 +11,32 @@ function Techniques({ siteLang, texnikalarData, techniquesType }) {
         ? "All"
         : siteLang === "ru"
         ? "Все"
-        : null)
+        : "Hamısı") // Varsayılanı "Hamısı" olarak ayarlayabilirsiniz
   );
   const handleClickType = (type) => {
-    if (type === "All") {
-      setCardsType("All");
-    } else {
-      setCardsType(type);
-    }
+    setCardsType(type.type);
+    localStorage.setItem("cardsType", type.type);
+    localStorage.setItem("cardsTypeId", type.id);
   };
-  const type =
-    siteLang === "az"
-      ? "Hamısı"
-      : siteLang === "en"
-      ? "All"
-      : siteLang === "ru"
-      ? "Все"
-      : null;
+
   useEffect(() => {
-    localStorage.setItem("cardsType", type);
-    // let data = cardsType === type.type ? "bg-textHover text-white" : ""
-  }, [cardsType, type]);
+    const storedCardsType = localStorage.getItem("cardsType");
+    if (storedCardsType) {
+      setCardsType(storedCardsType);
+    } else if(storedCardsType === null) {
+      setCardsType(
+        siteLang === "az"
+          ? "Hamısı"
+          : siteLang === "en"
+          ? "All"
+          : siteLang === "ru"
+          ? "Все"
+          : "Hamısı" // Varsayılanı "Hamısı" olarak ayarlayabilirsiniz
+      );
+    }
+    console.log(storedCardsType);
+  }, [siteLang]);
+
   return (
     <main className="py-16 flex flex-col gap-8 px-3">
       <header className="container mx-auto flex items-center gap-1 sm:gap-2 px-5 sm:px-0 ">
@@ -71,10 +76,12 @@ function Techniques({ siteLang, texnikalarData, techniquesType }) {
         <nav className="flex flex-wrap gap-5">
           {techniquesType.map((type, index) => (
             <button
-            className={`h-10 px-5 text-[#353535] text-sm font-bold shadow-boxShadow rounded-3xl hover:bg-textHover ${cardsType === type.type ? "bg-textHover text-white" : ""}`}
+              className={`h-10 px-5 text-[#353535] text-sm font-bold shadow-boxShadow rounded-3xl hover:bg-textHover ${
+                cardsType === type.type ? "bg-textHover text-white" : ""
+              }`}
               // className={`${cardsType === type.type ? "bg-textHover text-white":null} h-10 px-5 text-[#353535] text-sm font-bold shadow-boxShadow rounded-3xl hover:bg-textHover`}
               key={index}
-              onClick={() => handleClickType(type.type)}
+              onClick={() => handleClickType(type)}
             >
               {type.type}
             </button>
@@ -94,7 +101,7 @@ function Techniques({ siteLang, texnikalarData, techniquesType }) {
             <div
               key={index}
               className="w-56 sm:w-72 h-[545px] shadow-boxShadow mx-1 bg-white my-2"
-            > 
+            >
               <img
                 key={index}
                 src={item.img}
@@ -165,6 +172,6 @@ function Techniques({ siteLang, texnikalarData, techniquesType }) {
 export default Techniques;
 Techniques.propTypes = {
   siteLang: PropTypes.string.isRequired,
-  texnikalarData: PropTypes.string.isRequired,
-  techniquesType: PropTypes.string.isRequired,
+  texnikalarData: PropTypes.array.isRequired,
+  techniquesType: PropTypes.array.isRequired,
 };
