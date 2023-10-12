@@ -5,38 +5,35 @@ function Techniques({ siteLang, texnikalarData, techniquesType }) {
   const initialCardsType = localStorage.getItem("cardsType");
   const [cardsType, setCardsType] = useState(
     initialCardsType ||
-      (siteLang === "az"
-        ? "Hamısı"
-        : siteLang === "en"
-        ? "All"
-        : siteLang === "ru"
-        ? "Все"
-        : "Hamısı") // Varsayılanı "Hamısı" olarak ayarlayabilirsiniz
+      'Katok'
   );
+
   const handleClickType = (type) => {
     setCardsType(type.type);
     localStorage.setItem("cardsType", type.type);
     localStorage.setItem("cardsTypeId", type.id);
   };
-
+  useEffect(() => {
+    localStorage.removeItem("cardsType");
+  }, [siteLang]);
   useEffect(() => {
     const storedCardsType = localStorage.getItem("cardsType");
     if (storedCardsType) {
       setCardsType(storedCardsType);
-    } else if(storedCardsType === null) {
+    } else if (storedCardsType === null) {
       setCardsType(
-        siteLang === "az"
+        (siteLang === "az"
           ? "Hamısı"
           : siteLang === "en"
           ? "All"
           : siteLang === "ru"
           ? "Все"
-          : "Hamısı" // Varsayılanı "Hamısı" olarak ayarlayabilirsiniz
-      );
+          : "Hamısı") 
+      ) 
     }
-    console.log(storedCardsType);
-  }, [siteLang]);
-
+  }, [siteLang,]);
+ 
+  
   return (
     <main className="py-16 flex flex-col gap-8 px-3">
       <header className="container mx-auto flex items-center gap-1 sm:gap-2 px-5 sm:px-0 ">

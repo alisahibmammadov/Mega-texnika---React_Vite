@@ -82,7 +82,7 @@ function App() {
       ) : null}
       <BrowserRouter>
         <Header siteLang={siteLang} />
-        <Navbar handleLang={handleLang} linkData={linkData} />
+        <Navbar handleLang={handleLang} linkData={linkData}  />
         <Routes>
           <Route
             path="/"

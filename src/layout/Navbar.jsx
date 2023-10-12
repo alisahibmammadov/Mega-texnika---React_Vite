@@ -90,9 +90,10 @@ function Navbar({ handleLang, linkData }) {
                 >
                   {item.subCategories.map((item, index) => (
                     <Link
-                      to={item.link}
+                      to='techniques'
                       className="text-textColor text-sm not-italic font-normal leading-normal hover:font-medium hover:text-textHover hover:shadow-sm border-b-2 pt-2"
                       key={index}
+                      
                     >
                       {item.name}
                     </Link>
