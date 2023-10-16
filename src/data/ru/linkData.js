@@ -15,7 +15,7 @@ const linkData = [
       { name: "Насос", link: "Насос" },
     ],
   },
-  { name: "Условия аренды", link: "termsLease" },
+  { name: "Условия аренды", link: "termslease" },
   { name: "Блог", link: "blog" },
   { name: "Контакт", link: "contact" },
 ];

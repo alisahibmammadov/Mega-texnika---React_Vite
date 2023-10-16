@@ -15,7 +15,7 @@ const linkData = [
       { name: "Pompa", link: "Pompa" },
     ],
   },
-  { name: "İcarə şərtləri", link: "termsLease" },
+  { name: "İcarə şərtləri", link: "termslease" },
   { name: "Blog", link: "blog" },
   { name: "Əlaqə", link: "contact" },
 ];

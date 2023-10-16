@@ -19,6 +19,8 @@ import techniquesTypeEn from './data/en/techniquesTypeEn'
 import techniquesTypeRu from './data/ru/techniquesTypeRu'
 import NewsPage from "./pages/NewsPage";
 import Techniques from "./pages/Techniques";
+import AboutPage from "./pages/AboutPage";
+import TermsLeasePage from "./pages/TermsLeasePage";
 
 function App() {
   const [linkData, setLinkData] = useState([]);
@@ -102,6 +104,8 @@ function App() {
             }
           />
           <Route path="/techniques" element={<Techniques siteLang={siteLang} texnikalarData={texnikalarData} techniquesType={techniquesType}/>}/>
+           <Route path="/about" element={<AboutPage siteLang={siteLang}/>} />
+           <Route path="/termslease" element={<TermsLeasePage siteLang={siteLang}/>} />
         </Routes>
         <Footer siteLang={siteLang} linkData={linkData} />
       </BrowserRouter>

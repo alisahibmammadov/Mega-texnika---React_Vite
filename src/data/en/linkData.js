@@ -15,7 +15,7 @@ const linkData = [
         { name: "Pump", link: "Pump" },
       ],
     },
-    { name: "Terms of lease", link: "termsLease" },
+    { name: "Terms of lease", link: "termslease" },
     { name: "Blog", link: "blog" },
     { name: "Contact", link: "contact" },
   ];
