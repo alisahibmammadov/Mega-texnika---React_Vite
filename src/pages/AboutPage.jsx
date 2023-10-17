@@ -5,8 +5,9 @@ import WhyWe from "../components/home/WhyWe";
 import { Link } from "react-router-dom";
 
 function AboutPage({ siteLang }) {
-  return <div className="py-16 flex flex-col gap-8 px-3">
-    <header className="container mx-auto flex items-center gap-1 sm:gap-2 px-5 sm:px-0 ">
+  return (
+    <div className="py-16 flex flex-col gap-8 px-3">
+      <header className="container mx-auto flex items-center gap-1 sm:gap-2 px-5 sm:px-0 ">
         <Link
           to="/"
           className="text-[#ADADAD] text-xs  leading-normal hover:text-textHover font-normal"
@@ -30,10 +31,11 @@ function AboutPage({ siteLang }) {
             : null}
         </span>
       </header>
-    <Header siteLang={siteLang}/>
-    <About siteLang={siteLang}/>
-    <WhyWe siteLang={siteLang}/>
-  </div>;
+      <Header siteLang={siteLang} />
+      <About siteLang={siteLang} />
+      <WhyWe siteLang={siteLang} />
+    </div>
+  );
 }
 
 export default AboutPage;

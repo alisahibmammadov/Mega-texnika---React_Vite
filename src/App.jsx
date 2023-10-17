@@ -21,6 +21,7 @@ import NewsPage from "./pages/NewsPage";
 import Techniques from "./pages/Techniques";
 import AboutPage from "./pages/AboutPage";
 import TermsLeasePage from "./pages/TermsLeasePage";
+import BlogPages from "./pages/BlogPages";
 
 function App() {
   const [linkData, setLinkData] = useState([]);
@@ -106,6 +107,7 @@ function App() {
           <Route path="/techniques" element={<Techniques siteLang={siteLang} texnikalarData={texnikalarData} techniquesType={techniquesType}/>}/>
            <Route path="/about" element={<AboutPage siteLang={siteLang}/>} />
            <Route path="/termslease" element={<TermsLeasePage siteLang={siteLang}/>} />
+           <Route path="/blog" element={<BlogPages siteLang={siteLang} newsData={newsData}/>}/>
         </Routes>
         <Footer siteLang={siteLang} linkData={linkData} />
       </BrowserRouter>
