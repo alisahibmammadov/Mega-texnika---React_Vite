@@ -4,7 +4,10 @@ import PropTypes from "prop-types";
 function AccordionItem({ title, content, isOpen, toggleAccordion }) {
   return (
     <div className="border rounded mb-2 ">
-      <div className="p-2 cursor-pointer flex justify-between items-center text-xs md:text-xl" onClick={toggleAccordion}>
+      <div
+        className="p-2 cursor-pointer flex justify-between items-center text-xs md:text-xl"
+        onClick={toggleAccordion}
+      >
         {title}
         {!isOpen ? (
           <i className="fa-solid fa-plus text-[#ffc01f] text-xl "></i>
@@ -123,9 +126,9 @@ function Faq({ siteLang }) {
 export default Faq;
 AccordionItem.propTypes = {
   title: PropTypes.string.isRequired,
-  content: PropTypes.array.isRequired,
-  isOpen: PropTypes.array.isRequired,
-  toggleAccordion: PropTypes.array.isRequired,
+  content: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  toggleAccordion: PropTypes.func.isRequired,
 };
 Faq.propTypes = {
   siteLang: PropTypes.string.isRequired,

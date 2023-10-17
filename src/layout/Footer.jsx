@@ -95,5 +95,5 @@ function Footer({ siteLang, linkData }) {
 export default Footer;
 Footer.propTypes = {
   siteLang: PropTypes.string.isRequired,
-  linkData: PropTypes.string.isRequired,
+  linkData: PropTypes.array.isRequired,
 };

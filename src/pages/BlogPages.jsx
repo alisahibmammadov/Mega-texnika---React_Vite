@@ -67,5 +67,5 @@ function BlogPages({ siteLang, newsData }) {
 export default BlogPages;
 BlogPages.propTypes = {
   siteLang: PropTypes.string.isRequired,
-  newsData: PropTypes.string.isRequired,
+  newsData: PropTypes.array.isRequired,
 };
