@@ -22,6 +22,7 @@ import Techniques from "./pages/Techniques";
 import AboutPage from "./pages/AboutPage";
 import TermsLeasePage from "./pages/TermsLeasePage";
 import BlogPages from "./pages/BlogPages";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   const [linkData, setLinkData] = useState([]);
@@ -108,6 +109,7 @@ function App() {
            <Route path="/about" element={<AboutPage siteLang={siteLang}/>} />
            <Route path="/termslease" element={<TermsLeasePage siteLang={siteLang}/>} />
            <Route path="/blog" element={<BlogPages siteLang={siteLang} newsData={newsData}/>}/>
+           <Route path="/contact" element={<ContactPage siteLang={siteLang}/>}/>
         </Routes>
         <Footer siteLang={siteLang} linkData={linkData} />
       </BrowserRouter>

@@ -25,6 +25,7 @@ function Header({ siteLang }) {
             </span>
           ) : null}
         </nav>
+        
 
         <nav className="flex items-center gap-4 sm:gap-6">
           <img src={Instagram} alt="Instagram" className="cursor-pointer" />
