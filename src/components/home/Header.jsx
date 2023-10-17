@@ -26,7 +26,7 @@ function Header({ siteLang }) {
               : null}
           </span>
           <Link
-            to=""
+            to="/about"
             className="flex items-center justify-center w-36 h-10 mt-5 font-bold rounded-3xl border-2  text-xs not-italic  hover:bg-textHover text-textColor "
           >
             {siteLang === "az"
