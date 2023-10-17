@@ -58,5 +58,5 @@ function LangBtn({ handleLang }) {
 
 export default LangBtn;
 LangBtn.propTypes = {
-  handleLang: PropTypes.string.isRequired,
+  handleLang: PropTypes.func.isRequired,
 };

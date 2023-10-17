@@ -56,7 +56,6 @@ function Navbar({ handleLang, linkData }) {
       window.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [mobile]);
-  // !!!!!!!!!!!!!!!!!!!!
 
 
   return (
@@ -130,6 +129,6 @@ function Navbar({ handleLang, linkData }) {
 
 export default Navbar;
 Navbar.propTypes = {
-  handleLang: PropTypes.string.isRequired,
+  handleLang: PropTypes.func.isRequired,
   linkData: PropTypes.array.isRequired,
 };
