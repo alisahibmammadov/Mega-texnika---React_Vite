@@ -18,7 +18,7 @@ function LangBtn({ handleLang }) {
       {selectedBtn ? (
         <nav className=" gap-2 hidden sm:flex flex-col absolute top-10  shadow-sm rounded-lg px-2">
           <button
-            className={btn === "1" ? " font-semibold" : 'hover:font-semibold'}
+            className={btn === "1" ? " font-semibold" : "hover:font-semibold"}
             onClick={() => {
               handleLang("az"),
                 setBtn("1"),
@@ -29,7 +29,7 @@ function LangBtn({ handleLang }) {
             Az
           </button>
           <button
-            className={btn === "2" ? " font-semibold" : 'hover:font-semibold'}
+            className={btn === "2" ? " font-semibold" : "hover:font-semibold"}
             onClick={() => {
               handleLang("en"),
                 setBtn("2"),
@@ -40,7 +40,7 @@ function LangBtn({ handleLang }) {
             En
           </button>
           <button
-            className={btn === "3" ? " font-semibold" : 'hover:font-semibold'}
+            className={btn === "3" ? " font-semibold" : "hover:font-semibold"}
             onClick={() => {
               handleLang("ru"),
                 setBtn("3"),

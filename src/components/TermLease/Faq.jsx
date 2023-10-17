@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function AccordionItem({ title, content, isOpen, toggleAccordion }) {
   return (
     <div className="border rounded mb-2 ">
-      <div className="p-2 cursor-pointer flex justify-between items-center " onClick={toggleAccordion}>
+      <div className="p-2 cursor-pointer flex justify-between items-center text-xs md:text-xl" onClick={toggleAccordion}>
         {title}
         {!isOpen ? (
           <i className="fa-solid fa-plus text-[#ffc01f] text-xl "></i>
@@ -12,13 +12,12 @@ function AccordionItem({ title, content, isOpen, toggleAccordion }) {
           <i className="fa-solid fa-minus text-[#ffc01f] text-xl"></i>
         )}
       </div>
-      {isOpen && <div className="p-2">{content}</div>}
+      {isOpen && <div className="p-2 text-xs md:text-base">{content}</div>}
     </div>
   );
 }
 
 function Faq({ siteLang }) {
-  console.log(siteLang);
   const [accordions, setAccordions] = useState([]);
   useEffect(() => {
     setAccordions([

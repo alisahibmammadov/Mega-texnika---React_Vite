@@ -32,8 +32,6 @@ function App() {
   const [topBtn, setTopBtn] = useState(false);
   const [techniquesType, setTechniquesType] = useState([]);
 
- 
-
   useEffect(() => {
     if (
       localStorage.getItem("lang") === null &&
