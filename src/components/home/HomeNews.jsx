@@ -45,6 +45,6 @@ function HomeNews({ newsData, siteLang }) {
 export default HomeNews;
 
 HomeNews.propTypes = {
-  newsData: PropTypes.string.isRequired,
+  newsData: PropTypes.array.isRequired,
   siteLang: PropTypes.string.isRequired,
 };

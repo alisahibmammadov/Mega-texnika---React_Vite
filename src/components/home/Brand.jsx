@@ -41,5 +41,5 @@ function Brand({ siteLang }) {
 export default Brand;
 
 Brand.propTypes = {
-  siteLang: PropTypes.string.isrequired,
+  siteLang: PropTypes.string.isRequired,
 };

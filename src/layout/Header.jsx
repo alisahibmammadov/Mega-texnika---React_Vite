@@ -39,5 +39,5 @@ function Header({ siteLang }) {
 
 export default Header;
 Header.propTypes = {
-  siteLang: PropTypes.string.isRequired,
+  siteLang: PropTypes.string.isRequired
 };

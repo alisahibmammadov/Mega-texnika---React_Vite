@@ -24,7 +24,7 @@ function Home({ texnikalarData, siteLang, newsData }) {
 
 export default Home;
 Home.propTypes = {
-  texnikalarData: PropTypes.string.isRequired,
+  texnikalarData: PropTypes.array.isRequired,
   siteLang: PropTypes.string.isRequired,
-  newsData: PropTypes.string.isRequired,
+  newsData: PropTypes.array.isRequired,
 };

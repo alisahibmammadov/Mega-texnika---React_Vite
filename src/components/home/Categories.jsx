@@ -29,6 +29,6 @@ function Categories({ texnikalarData,siteLang }) {
 
 export default Categories;
 Categories.propTypes = {
-    texnikalarData: PropTypes.string.isRequired,
+    texnikalarData: PropTypes.array.isRequired,
     siteLang: PropTypes.string.isRequired,
 };

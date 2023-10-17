@@ -40,7 +40,7 @@ function MobileNavbar({ linkData, handleLang }) {
               <nav className="flex flex-col gap-2   w-44 bg-white shadow-sm rounded-sm border-2 px-1">
                 {item.subCategories.map((item, index) => (
                   <Link
-                    to={item.link}
+                    to='/techniques'
                     className="text-textColor text-sm not-italic font-normal leading-normal hover:font-medium hover:text-textHover hover:shadow-sm border-b-2 pt-2"
                     key={index}
                   >
@@ -103,6 +103,6 @@ function MobileNavbar({ linkData, handleLang }) {
 
 export default MobileNavbar;
 MobileNavbar.propTypes = {
-  linkData: PropTypes.string.isRequired,
-  handleLang: PropTypes.string.isRequired,
+  linkData: PropTypes.array.isRequired,
+  handleLang: PropTypes.func.isRequired,
 };

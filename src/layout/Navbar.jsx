@@ -46,6 +46,7 @@ function Navbar({ handleLang, linkData }) {
     window.addEventListener("resize", () => {
       if (window.innerWidth > 640) {
         setMobile(false);
+        
       }
     });
 
@@ -55,6 +56,8 @@ function Navbar({ handleLang, linkData }) {
       window.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [mobile]);
+  // !!!!!!!!!!!!!!!!!!!!
+
 
   return (
     <main className="shadow-lg shadow-[#9f9f9f40] relative px-3">
@@ -90,7 +93,7 @@ function Navbar({ handleLang, linkData }) {
                 >
                   {item.subCategories.map((item, index) => (
                     <Link
-                      to='techniques'
+                      to='/techniques'
                       className="text-textColor text-sm not-italic font-normal leading-normal hover:font-medium hover:text-textHover hover:shadow-sm border-b-2 pt-2"
                       key={index}
                       
@@ -128,7 +131,5 @@ function Navbar({ handleLang, linkData }) {
 export default Navbar;
 Navbar.propTypes = {
   handleLang: PropTypes.string.isRequired,
-  linkData: PropTypes.string.isRequired,
-  modal: PropTypes.string.isRequired,
-  setModal: PropTypes.string.isRequired,
+  linkData: PropTypes.array.isRequired,
 };

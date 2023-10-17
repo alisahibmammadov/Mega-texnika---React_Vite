@@ -14,9 +14,9 @@ import texnikalarRu from "./data/ru/texnikalarRu";
 import newsAz from "./data/az/newsAz";
 import newsEn from "./data/en/newsEn";
 import newsRu from "./data/ru/newsRu";
-import techniquesTypeAz from './data/az/techniquesTypeAz'
-import techniquesTypeEn from './data/en/techniquesTypeEn'
-import techniquesTypeRu from './data/ru/techniquesTypeRu'
+import techniquesTypeAz from "./data/az/techniquesTypeAz";
+import techniquesTypeEn from "./data/en/techniquesTypeEn";
+import techniquesTypeRu from "./data/ru/techniquesTypeRu";
 import NewsPage from "./pages/NewsPage";
 import Techniques from "./pages/Techniques";
 import AboutPage from "./pages/AboutPage";
@@ -28,9 +28,16 @@ function App() {
   const [linkData, setLinkData] = useState([]);
   const [texnikalarData, setTexnikalarData] = useState([]);
   const [newsData, setNewsData] = useState([]);
-  const [siteLang, setSiteLang] = useState();
+  const [siteLang, setSiteLang] = useState("az");
   const [topBtn, setTopBtn] = useState(false);
-  const [techniquesType,setTechniquesType] = useState([])
+  const [techniquesType, setTechniquesType] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem("lang") === null && localStorage.getItem("btnNum") === null) {
+      localStorage.setItem("lang", JSON.stringify("az"));
+      localStorage.setItem("btnNum", JSON.stringify(1));
+    }
+  }, []);
 
   useEffect(() => {
     const topBtnScroll = () => {
@@ -46,17 +53,17 @@ function App() {
       setLinkData(linkDataAz);
       setTexnikalarData(texnikalarAz);
       setNewsData(newsAz);
-      setTechniquesType(techniquesTypeAz)
+      setTechniquesType(techniquesTypeAz);
     } else if (siteLang === "en") {
       setLinkData(linkDataEn);
       setTexnikalarData(texnikalarEn);
       setNewsData(newsEn);
-      setTechniquesType(techniquesTypeEn)
+      setTechniquesType(techniquesTypeEn);
     } else {
       setLinkData(linkDataRu);
       setTexnikalarData(texnikalarRu);
       setNewsData(newsRu);
-      setTechniquesType(techniquesTypeRu)
+      setTechniquesType(techniquesTypeRu);
     }
     return () => {
       window.removeEventListener("scroll", topBtnScroll);
@@ -86,7 +93,7 @@ function App() {
       ) : null}
       <BrowserRouter>
         <Header siteLang={siteLang} />
-        <Navbar handleLang={handleLang} linkData={linkData}  />
+        <Navbar handleLang={handleLang} linkData={linkData} />
         <Routes>
           <Route
             path="/"
@@ -95,21 +102,33 @@ function App() {
                 texnikalarData={texnikalarData}
                 newsData={newsData}
                 siteLang={siteLang}
-                
               />
             }
           />
+          <Route path="/news/:id" element={<NewsPage siteLang={siteLang} />} />
           <Route
-            path="/news/:id"
+            path="/techniques"
             element={
-              <NewsPage  siteLang={siteLang} />
+              <Techniques
+                siteLang={siteLang}
+                texnikalarData={texnikalarData}
+                techniquesType={techniquesType}
+              />
             }
           />
-          <Route path="/techniques" element={<Techniques siteLang={siteLang} texnikalarData={texnikalarData} techniquesType={techniquesType}/>}/>
-           <Route path="/about" element={<AboutPage siteLang={siteLang}/>} />
-           <Route path="/termslease" element={<TermsLeasePage siteLang={siteLang}/>} />
-           <Route path="/blog" element={<BlogPages siteLang={siteLang} newsData={newsData}/>}/>
-           <Route path="/contact" element={<ContactPage siteLang={siteLang}/>}/>
+          <Route path="/about" element={<AboutPage siteLang={siteLang} />} />
+          <Route
+            path="/termslease"
+            element={<TermsLeasePage siteLang={siteLang} />}
+          />
+          <Route
+            path="/blog"
+            element={<BlogPages siteLang={siteLang} newsData={newsData} />}
+          />
+          <Route
+            path="/contact"
+            element={<ContactPage siteLang={siteLang} />}
+          />
         </Routes>
         <Footer siteLang={siteLang} linkData={linkData} />
       </BrowserRouter>

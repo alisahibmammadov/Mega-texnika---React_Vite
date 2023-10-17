@@ -100,6 +100,6 @@ function Techniques({ siteLang, texnikalarData }) {
 
 export default Techniques;
 Techniques.propTypes = {
-  texnikalarData: PropTypes.string.isRequired,
+  texnikalarData: PropTypes.array.isRequired,
   siteLang: PropTypes.string.isRequired,
 };
