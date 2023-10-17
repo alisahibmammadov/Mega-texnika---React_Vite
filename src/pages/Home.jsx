@@ -6,6 +6,7 @@ import WhyWe from "../components/home/WhyWe";
 import Brand from "../components/home/Brand";
 import About from "../components/home/About";
 import HomeNews from "../components/home/HomeNews";
+import Form from "../components/home/Form";
 function Home({ texnikalarData, siteLang, newsData }) {
   return (
     <div>
@@ -15,6 +16,7 @@ function Home({ texnikalarData, siteLang, newsData }) {
       <Techniques texnikalarData={texnikalarData} siteLang={siteLang} />
       <Brand siteLang={siteLang} />
       <HomeNews newsData={newsData} siteLang={siteLang} />
+      <Form siteLang={siteLang}/>
       <WhyWe siteLang={siteLang} />
     </div>
   );
