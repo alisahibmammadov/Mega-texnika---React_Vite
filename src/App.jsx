@@ -32,14 +32,16 @@ function App() {
   const [topBtn, setTopBtn] = useState(false);
   const [techniquesType, setTechniquesType] = useState([]);
 
+ 
+
   useEffect(() => {
-    if (localStorage.getItem("lang") === null && localStorage.getItem("btnNum") === null) {
+    if (
+      localStorage.getItem("lang") === null &&
+      localStorage.getItem("btnNum") === null
+    ) {
       localStorage.setItem("lang", JSON.stringify("az"));
       localStorage.setItem("btnNum", JSON.stringify(1));
     }
-  }, []);
-
-  useEffect(() => {
     const topBtnScroll = () => {
       if (window.pageYOffset > 10) {
         setTopBtn(true);
